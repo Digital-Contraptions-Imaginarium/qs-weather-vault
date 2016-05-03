@@ -22,7 +22,7 @@ var garbageCollect = function (callback) {
     // Note: a Google spreadsheet can contain max 2m cells according to
     // https://support.google.com/drive/answer/37603?hl=en .
     if (sheet.getLastRow() * sheet.getLastColumn() > 2000000 * UTILISATION_SOFT_LIMIT) {
-        sheet.deleteRows(2, 1 + Math.floor((sheet.getLastRow() * sheet.getLastColumn() - 2000000 * UTILISATION_SOFT_LIMIT) / 2)); 
+        sheet.deleteRows(2, 1 + Math.ceil((sheet.getLastRow() * sheet.getLastColumn() - 2000000 * UTILISATION_SOFT_LIMIT) / 2)); 
     }
     callback(null);
 }
